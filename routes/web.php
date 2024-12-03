@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+use App\Http\Controllers\Admin\CollageControler;
+Route::prefix('admin')->group(function () {
+    Route::resource('works', CollageController::class)->except(['show']);
+});
