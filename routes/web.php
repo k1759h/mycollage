@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\CollageController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-use App\Http\Controllers\Admin\CollageControler;
+
 Route::prefix('admin')->group(function () {
     Route::resource('works', CollageController::class)->except(['show']);
 });
