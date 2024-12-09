@@ -24,3 +24,7 @@ Route::get('/', function () {
 Route::prefix('admin')->group(function () {
     Route::resource('works', CollageController::class)->except(['show']);
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

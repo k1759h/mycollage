@@ -10,7 +10,7 @@ class CollageController extends Controller
     //
     public function index()
     {
-        $works = [];
+        $works = ['Sample Work 1', 'Sample Work 2'];
         return view('admin.works.index', ['works' => $works]);
     }
     
@@ -26,7 +26,7 @@ class CollageController extends Controller
             'description' => 'required|string',
             ]);
             
-        return view('/admin/works');
+        return redirect('/admin/works');
     }
     
     public function edit($id)
@@ -37,15 +37,15 @@ class CollageController extends Controller
     
     public function update(Request $request, $id)
     {
-        $varidated = $request->varidate([
+        $varidated = $request->validate([
             'title' => 'required|string|max:100',
             'description' => 'required|string',
             ]);
             
-        return view('/admin/works');
+        return redirect('/admin/works');
     }
     
-    public function destory($id)
+    public function destroy($id)
     {
         return redirect('/admin/works');
     }
