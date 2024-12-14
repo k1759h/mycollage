@@ -19,7 +19,7 @@
     </head>
     <body>
         <div id="app">
-          <div class="navbar navbar-expand-lg navbar-light bg-light">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">MyCollage</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +28,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#" aria-current="page">top</a>
+                            <a class="nav-link active" href="#" aria-current="page">Top</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">作品一覧</a>
@@ -37,7 +37,12 @@
                     <a href="#" class="btn border-0 bg-transparent custom-button">ログイン</a>
                 </div>
             </div>
-          </div>
+          </nav>
+          <main class="py-4">
+                
+                
+                @yield('content')
+          </main>
         </div>
     </body>
 

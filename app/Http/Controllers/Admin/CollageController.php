@@ -8,34 +8,17 @@ use Illuminate\Http\Request;
 class CollageController extends Controller
 {
     //
-    public function index()
+    public function index() //作品一覧
     {
-        $works = ['Sample Work 1', 'Sample Work 2'];
-        return view('admin.works.index', ['works' => $works]);
+        return view ('admin.works');
     }
     
-    public function create()
+    public function create() //新規作成
     {
         return view('admin.works.create');
     }
     
-    public function store(Request $request)
-    {
-        $varidated = $request->varidate([
-            'title' => 'required|string|max:100',
-            'description' => 'required|string',
-            ]);
-            
-        return redirect('/admin/works');
-    }
-    
-    public function edit($id)
-    {
-        $work = null;
-        return view('admin.works.edit', ['work' => $work]);
-    }
-    
-    public function update(Request $request, $id)
+    public function store(Request $request) //保存
     {
         $varidated = $request->validate([
             'title' => 'required|string|max:100',
@@ -45,7 +28,24 @@ class CollageController extends Controller
         return redirect('/admin/works');
     }
     
-    public function destroy($id)
+    public function edit($id) //編集
+    {
+        $work = Work::findOrFail($id);
+        
+        return view('admin.works.edit', ['work' => $work]);
+    }
+    
+    public function update(Request $request, $id) //更新
+    {
+        $varidated = $request->validate([
+            'title' => 'required|string|max:50',
+            'description' => 'required|string',
+            ]);
+            
+        return redirect('/admin/works');
+    }
+    
+    public function destroy($id) //削除
     {
         return redirect('/admin/works');
     }
