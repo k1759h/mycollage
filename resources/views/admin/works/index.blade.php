@@ -19,9 +19,26 @@
         </thead>
         <tbody>
             @foreach ($works as $work)
-            <td>
+            <tr>
                 <a href="{{ route('works.edit', $work->id) }}">{{ $work->title }}</a>
             </td>
+            
+            <td>
+                @if ($work->image)
+                    <img src="{{ asset('storage/', $work->image) }}" alt="画像" style="width: 100px; heght: auto;">
+                @else
+                    画像なし
+                @endif
+            </td>
+            
+            <td>
+                <form action="{{ route('works.destory', $work->id) }}" method="POST" onsubmit="return confilm('本当に削除しますか？')";>
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-secondary">削除</button>
+            </tr>
+            @endforeach
         </tbody>
     </div>
 </div>
+@endsection
