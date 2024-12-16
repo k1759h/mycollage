@@ -34,7 +34,7 @@
                             <a class="nav-link" href="#">作品一覧</a>
                         </li>
                     </ul>
-                    <a href="#" class="btn border-0 bg-transparent custom-button">ログイン</a>
+                    <a href="{{ url('/login') }}" class="btn border-0 bg-transparent custom-button">ログイン</a>
                 </div>
             </div>
           </nav>

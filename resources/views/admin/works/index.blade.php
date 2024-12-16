@@ -7,6 +7,7 @@
     
     <div style="margin-bottom: 20px;">
         <a href="{{ route('works.create') }}" class="btn btn-primary">新規作成</a>
+       
     </div>
     
     <div class="table-responsive">
@@ -24,11 +25,13 @@
             </td>
             
             <td>
+                
                 @if ($work->image)
-                    <img src="{{ asset('storage/', $work->image_path) }}" alt="画像" style="width: 100px; height: auto;">
+                    <img src="{{ asset('storage/', $work->image_path) }}" alt="画像" width="100" height="auto">
                 @else
                     画像なし
                 @endif
+            
             </td>
             
                 <form action="{{ route('works.destroy', $work->id) }}" method="POST" onsubmit="return confilm('本当に削除しますか？')";>
