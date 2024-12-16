@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Works;
+use App\Models\Work;
 
 class CollageController extends Controller
 {
     //
     public function index() //作品一覧
     {
-        $works = Works::all();
+        $works = Work::all();
         return view ('admin.works.index', ['works' => $works]);
     }
     
@@ -28,13 +28,13 @@ class CollageController extends Controller
             'image' => 'nullable|image|max:2048',
         ]);
          
-        $work = new Works();
+        $work = new Work();
         $work->title = $validated['title'];
         $work->description = $validated['description'];
         
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('works', 'public')
-            $work->image = $path;
+            $path = $request->file('image')->store('works', 'public');
+            $work->image_path = $path;
         }
         
         $work->save();
@@ -43,28 +43,28 @@ class CollageController extends Controller
         return redirect('/admin/works');
     }
     
-    public function edit(Request $request, $id) //編集
+    public function edit($id) //編集
     {
-        $work = Works::findOrFail($id);
+        $work = Work::findOrFail($id);
         
         return view('admin.works.edit', ['work' => $work]);
     }
     
     public function update(Request $request, $id) //更新
     {
-        $varidated = $request->validate([
+        $validated = $request->validate([
             'title' => 'required|string|max:50',
             'description' => 'required|string',
             'image' => 'nullable|image|max: 2048',
         ]);
         
-        $work = Works::findOrFail($id);
+        $work = Work::findOrFail($id);
         $work->title = $validated['title'];
         $work->description = $validated['description'];
         
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('works', 'public')
-            $work->image = $path;
+            $path = $request->file('image')->store('works', 'public');
+            $work->image_path = $path;
         }
         
         $work->save();
@@ -75,7 +75,7 @@ class CollageController extends Controller
     
     public function destroy($id) //削除
     {
-        $work = Works::findOrFail($id);
+        $work = Work::findOrFail($id);
         $work->delete();
         
         return redirect('/admin/works');
