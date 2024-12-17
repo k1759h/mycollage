@@ -31,7 +31,7 @@
                             <a class="nav-link active" href="#" aria-current="page">Top</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">作品一覧</a>
+                            <a class="nav-link" href="{{ route('works.index') }}">作品一覧</a>
                         </li>
                     </ul>
                     <a href="{{ url('/login') }}" class="btn border-0 bg-transparent custom-button">ログイン</a>

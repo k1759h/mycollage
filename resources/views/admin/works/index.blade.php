@@ -26,10 +26,8 @@
             
             <td>
                 
-                @if ($work->image)
-                    <img src="{{ asset('storage/', $work->image_path) }}" alt="画像" width="100" height="auto">
-                @else
-                    画像なし
+                @if ($work->image_path)
+                    <img src="{{ asset('storage/' . $work->image_path) }}" alt="画像" width="200">
                 @endif
             
             </td>
