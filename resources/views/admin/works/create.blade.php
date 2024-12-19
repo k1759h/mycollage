@@ -8,12 +8,12 @@
     <div class="card p-4 shadow">
         <form action="{{ route('works.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="row">
+           <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="image" class="form-label">画像</label>
                     <input type="file" id="image" name="image" class="form-control" style="width: 95%;">
                 </div>
-            </div>
+           </div>
             
             <div class="col-md-6">
                 <div class="mb-3">
