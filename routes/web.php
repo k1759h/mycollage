@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CollageController;
-
+use App\Http\Controllers\CollageController as PublicCollageController;
 
 
 /*
@@ -27,4 +27,5 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/works', [PublicCollageController::class, 'index'])->name('works.index');
+
