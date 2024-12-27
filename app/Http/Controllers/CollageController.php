@@ -10,15 +10,17 @@ class CollageController extends Controller
 {
     public function index()
     {
-        $works = Work::all()->sortByDesc('updated_at');
+        $works = Work::orderBy('updated_at', 'desc')->get();
         
-        if (count($works) > 0) {
-            $headline = $works->shift();
-        } else {
-            $headline == null;
-        }
+        $headline = $works->first();
+        
+        $works = $works->slice(1);
         
         return view('works.index', ['headline' => $headline, 'works' => $works]);
     }
-    //
+    
+    public function top()
+    {
+        return view('top');
+    }
 }
