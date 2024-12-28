@@ -1,0 +1,46 @@
+body {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #fffafa;
+  color: #3bb382;
+}
+
+.navbar a {
+  background-color: #fffafa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #eaeaea;
+  color: #3bb382;
+}
+
+.btn-custom:hover {
+  background-color: #f8f9fa;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.card-text {
+  color: #555;
+}
+
+.card-img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+
+.btn {
+  border-radius: 4px;
+}
+
+.h3 {
+  color: #e69138;
+}

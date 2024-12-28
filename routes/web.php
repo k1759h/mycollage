@@ -17,7 +17,7 @@ use App\Http\Controllers\CollageController as PublicCollageController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('top');
 });
 
 
@@ -29,8 +29,6 @@ Auth::routes();
 
 Route::get('/works', [PublicCollageController::class, 'index'])->name('works.index');
 
-Route::get('/top', [PublicCollageController::class, 'top'])->name('top');
-
-Auth::routes();
+Route::get('/', [PublicCollageController::class, 'top'])->name('top');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
