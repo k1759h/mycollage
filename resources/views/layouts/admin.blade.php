@@ -28,7 +28,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#" aria-current="page">Top</a>
+                            <a class="nav-link active" href="{{ route('top') }}" aria-current="page">Top</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('works.index') }}">作品一覧</a>

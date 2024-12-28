@@ -29,4 +29,8 @@ Auth::routes();
 
 Route::get('/works', [PublicCollageController::class, 'index'])->name('works.index');
 
-Route::get('/top', [PublicCollageController::class, 'index'])->name('top');
+Route::get('/top', [PublicCollageController::class, 'top'])->name('top');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

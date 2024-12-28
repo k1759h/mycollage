@@ -21,6 +21,6 @@ class CollageController extends Controller
     
     public function top()
     {
-        return view('top');
+        return view('works.top');
     }
 }
