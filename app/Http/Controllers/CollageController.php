@@ -19,8 +19,11 @@ class CollageController extends Controller
         return view('works.index', ['headline' => $headline, 'works' => $works]);
     }
     
-    public function top()
+    
+    
+    public function show($id)
     {
-        return view('works.top');
+        $work = Work::findOrFail($id);
+        return view('works.show', ['work' => $work]);
     }
 }
