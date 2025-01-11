@@ -8,6 +8,12 @@ use App\Models\Work;
 
 class CollageController extends Controller
 {
+    public function top()
+    {
+        return view('/');
+    }
+    
+    
     public function index()
     {
         $works = Work::orderBy('updated_at', 'desc')->get();
