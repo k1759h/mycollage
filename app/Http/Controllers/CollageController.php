@@ -10,7 +10,7 @@ class CollageController extends Controller
 {
     public function top()
     {
-        return view('/');
+        return view('works.top');
     }
     
     
@@ -20,7 +20,9 @@ class CollageController extends Controller
         
         $headline = $works->first();
         
-        $works = $works->slice(1);
+        //$works = $works->slice(1);
+        
+        
         
         return view('works.index', ['headline' => $headline, 'works' => $works]);
     }

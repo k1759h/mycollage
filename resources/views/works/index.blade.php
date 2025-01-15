@@ -9,6 +9,7 @@
         @foreach ($works as $work)
         <div class="col-md-6 mb-4">
             <div class="card shadow-sm">
+                
                 <div class="row g-0">
                     <!--作品画像 -->
                     <div class="col-4">

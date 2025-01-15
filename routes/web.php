@@ -16,8 +16,9 @@ use App\Http\Controllers\CollageController as PublicCollageController;
 |
 */
 
-Route::get('/', [CollageController::class, 'top'])->name('top');
-
+Route::get('/', function () {
+    return view('top');
+});
 
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('works', CollageController::class)->except(['show']);
@@ -26,6 +27,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 Auth::routes();
 
 Route::get('/works', [PublicCollageController::class, 'index'])->name('works.index');
+
+Route::get('/', [PublicCollageController::class, 'top'])->name('top');
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
