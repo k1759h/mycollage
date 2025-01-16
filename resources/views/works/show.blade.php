@@ -10,7 +10,7 @@
             <div class="card">
                 <img src="{{ asset('storage/' . $work->image_path) }}" alt="{{ $work->title }}" class="card-img-top">
                 <div class="card-body">
-                    <p class="card-text">{{ $work->description }}</p>
+                    <p class="card-text">{!! nl2br(e($work->description)) !!}</p>
                     <a href="{{ route('works.index') }}" class="btn btn-primary">作品一覧に戻る</a>
                 </div>
             </div>

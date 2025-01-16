@@ -31,6 +31,9 @@
                             <a class="nav-link" href="{{ route('works.index') }}">作品一覧</a>
                         </li>
                     </ul>
+                    
+                    
+                    
                     <ul class="navbar-nav ms-auto">
                         
                         @guest

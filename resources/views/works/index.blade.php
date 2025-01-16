@@ -23,7 +23,11 @@
                     <!-- タイトルと内容 -->
                     <div class="col-8">
                         <div class="card-body">
-                            <h5 class="card-title text-center">{{ $work->title }}</h5>
+                            <h5 class="card-title text-center"><a href="{{ route('works.show', $work->id) }}">{{ $work->title }}</a>
+                            </h5>
+                            
+                            <!--<a href="{{ route('works.show', $work->id) }}">{{ $work->title }}</a> -->
+                            
                             <p class="card-text" style="font-size: 14px; line-height: 1.6;">
                                 {{ Str::limit($work->description, 100) }}
                             </p>

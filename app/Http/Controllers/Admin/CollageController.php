@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Work;
+use Illuminate\Support\Facades\Auth;
+
 
 class CollageController extends Controller
 {
@@ -12,6 +14,12 @@ class CollageController extends Controller
     public function index() //作品一覧
     {
         $works = Work::all();
+        
+        $userId = Auth::id();
+        
+        $works = Work::where('user_id', $userId)->orderBy('updated_at', 'desc')->get();
+
+
         return view ('admin.works.index', ['works' => $works]);
     }
     
@@ -31,6 +39,7 @@ class CollageController extends Controller
         $work = new Work();
         $work->title = $validated['title'];
         $work->description = $validated['description'];
+        $work->user_id = auth()->id();
         
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('works', 'public');
@@ -47,6 +56,10 @@ class CollageController extends Controller
     {
         $work = Work::findOrFail($id);
         
+        if ($work->user_id !== auth()->id()) {
+        abort(403, 'この作品を編集する権限がありません。');
+        }
+        
         return view('admin.works.edit', ['work' => $work]);
     }
     
@@ -59,6 +72,12 @@ class CollageController extends Controller
         ]);
         
         $work = Work::findOrFail($id);
+        
+        if ($work->user_id !== auth()->id()) {
+        abort(403, 'この作品を削除する権限がありません。');
+        }
+
+        
         $work->title = $validated['title'];
         $work->description = $validated['description'];
         
@@ -76,6 +95,12 @@ class CollageController extends Controller
     public function destroy($id) //削除
     {
         $work = Work::findOrFail($id);
+        
+        if ($work->user_id !== auth()->id()) {
+        abort(403, 'この作品を削除する権限がありません。');
+        }
+
+        
         $work->delete();
         
         return redirect('/admin/works');

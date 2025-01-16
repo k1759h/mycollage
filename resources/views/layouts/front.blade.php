@@ -31,10 +31,13 @@
                             <a class="nav-link" href="{{ route('works.index') }}">作品一覧</a>
                         </li>
                     </ul>
+                    
                     <ul class="navbar-nav ms-auto">
         
                         @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a></li>
+                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a>
+                                <a href="{{ route('register') }}" class="btn btn-success">会員登録</a>
+                            </li>
                         @else
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -52,7 +55,7 @@
                                 </div>
                             </li>
                         @endguest
-                    </ul
+                    </ul>
                 </div>
             </div>
           </nav>
